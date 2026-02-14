@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+.Top-section{
+    
+    height:10%;
+    display:flex;
+    justify-content: center;
+}
+.navbar{
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.587);
+    border:1px solid black;
+    border:none;
+    border-radius: 50px;
+    
+    
+}
+.logo{
+    margin-left: 10px;
+    margin-right: 10px;
+    display:flex;
+    width: 100%;
+    align-items: center;
+
+}
+img{
+    width:200px;
+    height:70px;
+}
+.featuresbox{
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family:Open Sans ; 
+    color: rgb(12, 12, 135);
+    cursor: pointer;
+}
+.features:hover{
+    color: rgba(12, 12, 135, 0.466);
+}
+.about-us:hover{
+    color: rgba(12, 12, 135, 0.466);
+
+
+}
+.pricing:hover{
+    color: rgba(12, 12, 135, 0.483);
+
+}
+
+.login-box{
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+}
+.loginbtn{
+    display: inline-flex;
+  justify-content: center;
+  align-items: center;
+    color:darkblue;
+    width:30%;
+    height:40px;
+    border: 1px solid darkblue;
+    background-color: white;
+    border-radius: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: .9em;
+    
+
+}
+.loginbtn:hover{
+    background-color: darkblue;
+    color: white;
+}
+.signupbtn{
+    display: inline-flex;
+  justify-content: center;
+  align-items: center;
+    width:30%;
+    height: 40px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 30px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: .8em;
+    
+}
+.signupbtn:hover{
+    background-color: white;
+    color: darkblue;
+    border: 1px solid darkblue;
+}
