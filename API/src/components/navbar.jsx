@@ -13,9 +13,9 @@ const Navbar = () => {
         </div>
 
         <div className='featuresbox'>
-          <a>About us</a>
-          <a>Features</a>
-          <a>Pricing</a>
+          <a className='about-us'>About us</a>
+          <a className='features'>Features</a>
+          <a className='pricing'>Pricing</a>
         </div>
 
         <div className='login-box'>

@@ -5,21 +5,21 @@ import { NavLink } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <>
-    <div className='dashboard-holder'>
-    <div className='dashboard-container'>
+    
+    
         <div className='sidebar'>
             <p className='dasboard'>Dashboard</p>
-            <NavLink to='/dasboard/overview' className='overview'>Overview</NavLink>
-            <NavLink to='/dasboard/usage' className='usage'>Usage</NavLink>
-            <NavLink to='/dasboard/API' className='api'>API</NavLink>
+            <NavLink to='' className='nav-link' end>Overview</NavLink>
+            <NavLink to='usage' className='nav-link'>Usage</NavLink>
+            <NavLink to='api' className='nav-link'>API</NavLink>
         </div>
-        <div className='contents'>
+        {/* <div className='contents'>
             
 
-        </div>
+        </div> */}
 
-    </div>
-    </div>
+   
+    
     </>
   )
 }

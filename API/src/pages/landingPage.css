@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 .mainconatiner{
-    background-image: url(../assets/backgorund.png);
+    background-image: url(../assets/background1.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
@@ -129,7 +129,7 @@ a{
 .heading{
     
     margin-left: 50px;
-    color: darkblue;
+    color: white;
     font-size: 3.5em;
     font-family: Poppins
     ;
@@ -154,14 +154,14 @@ a{
 .continuebtn:hover{
     background-color: white;
     color: rgb(185, 8, 185);
-    border: 1px solid rgb(185, 8, 185);
+    border: 1px solid white;
 
 }
 .subheading{
     margin-left: 50px;
     font-family:Poppins
     ;
-    color: darkblue;
+    color: white;
     margin-top: 20px;
     font-size: 1.1em;
 }
