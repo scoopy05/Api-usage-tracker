@@ -12,4 +12,9 @@ app.use(cookieParser());
 app.get("/",(req,res)=>{
 res.send(" API managemnt server")});
 
+const authRoutes=require("./Routes/authRoutes");
+const userRoutes=require("./Routes/userRoutes");
+app.use("/api/auth",authRoutes);
+app.use("/api/user",userRoutes)
+
 module.exports=app;

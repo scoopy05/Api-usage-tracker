@@ -1,6 +1,7 @@
 const User=require("../models/User");
 const bcrypt=require(bcryptjs);
 const {v4:uuidv4}=require("uuid");
+const jwt=require("jsonwebtoken");
 
 const registerUser=async (req,res)=>{
     try{
@@ -32,4 +33,32 @@ const registerUser=async (req,res)=>{
     }
 };
 
-module.exports={registerUser};
+const loginUser=async (req,res)=>{
+    try{
+        const {email,password}=req.body;
+        const user=await User.findOne({email});
+        if(!user){
+            res.status(400).json({message:"Invalid credentials"});
+
+        }
+
+        const isMatch=await bcrypt.compare(user.password,hashPassword);
+        if(!isMatch){
+            res.status(400).json({message:"Invalid credentials"});
+            
+        }
+        const token=jwt.sign({
+            id:user._id,apiKey:user.apiKey},
+        "secretkey",{
+            expiresIn:"1d"
+        })
+
+        res.json({
+            message:"login successful",token:token,
+        })
+    }catch(error){
+        res.status(500).json({message:"server error"});
+    }
+}
+
+module.exports={registerUser,loginUser};
