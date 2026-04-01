@@ -1,27 +1,32 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
+const Plan=require("../models/planModel");
 
-const userSchema=new mongoose.Schema({
-    user:{
-        type:String,
-        require:true,
+const userSchema = new mongoose.Schema({
+    user: {
+        type: String,
+        required: true,
     },
-    email:{
-        type:String,
-        require:true,
-        unique:true,
+    email: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    password:{
-        type:String,
-        require:true,
+    password: {
+        type: String,
+        required: true,
     },
-    role:{
-        type:String,
-        default:"user",
+    role: {
+        type: String,
+        default: "user",
     },
-    apiKey:{
-        type:String,
-    }
+    apikey: {
+        type: String,
+    },
+    plan: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Plan"
+      }
 
-},{timestamps:true});
+}, { timestamps: true });
 
-module.exports=mongoose.model("User",userSchema);
+module.exports = mongoose.model("User", userSchema);
