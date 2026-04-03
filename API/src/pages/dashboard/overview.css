@@ -1,0 +1,128 @@
+.overview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    color: #1a1a1a;
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .overview-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 1.2rem;
+    color: #6a0dad;
+    font-weight: 500;
+  }
+  
+  .overview-header h1 {
+    margin: 0 0 5px 0;
+    font-size: 2rem;
+  }
+  
+  .overview-header p {
+    margin: 0;
+    color: #666;
+    font-size: 1.05rem;
+  }
+  
+  /* --- Stats Grid --- */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .stat-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #eaeaef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .stat-card h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  
+  .stat-value.log-text {
+    font-size: 1.4rem; /* Slightly smaller so text fits nicely */
+    color: #00a86b; /* Green to indicate a successful log */
+  }
+  
+  /* --- Usage Limit Card --- */
+  .limit-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #eaeaef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  }
+  
+  .limit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .limit-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+  
+  .limit-numbers {
+    font-weight: 600;
+    color: #4a4a55;
+    font-size: 1.05rem;
+  }
+  
+  .progress-bar-bg {
+    width: 100%;
+    height: 14px;
+    background-color: #f0f0f5;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #6a0dad;
+    border-radius: 10px;
+    transition: width 0.8s ease-in-out;
+  }
+  
+  /* Turns red if they are close to hitting the limit */
+  .progress-bar-fill.warning {
+    background-color: #ff3b30; 
+  }
+  
+  .limit-warning {
+    color: #ff3b30;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    font-weight: 500;
+  }

@@ -1,0 +1,135 @@
+.keys-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px; 
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .keys-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 1.2rem;
+    color: #6a0dad;
+    font-weight: 500;
+  }
+  
+  /* --- Header Section --- */
+  .keys-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+  }
+  
+  .keys-header-text h1 {
+    margin: 0 0 5px 0;
+    font-size: 2rem;
+    color: #1a1a1a;
+  }
+  
+  .keys-header-text p {
+    margin: 0;
+    color: #666;
+    font-size: 1.05rem;
+  }
+  
+  /* --- API Key Card --- */
+  .key-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #eaeaef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .key-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .key-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+  
+  .security-badge {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .key-warning {
+    margin: 0 0 25px 0;
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  /* The box containing the Key */
+  .key-box {
+    background-color: #f8f9fa;
+    border: 1px solid #eaeaef;
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .key-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    font-weight: 600;
+    overflow-x: auto;
+  }
+  
+  .key-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon-btn, .copy-btn {
+    background-color: #ffffff;
+    border: 1px solid #eaeaef;
+    color: #4a4a55;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  
+  .icon-btn:hover, .copy-btn:hover {
+    background-color: #f4f4f9;
+    border-color: #d1d1d6;
+  }
+  
+  .copy-btn.copied {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+  }

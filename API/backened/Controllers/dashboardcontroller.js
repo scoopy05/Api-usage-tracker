@@ -1,4 +1,5 @@
 const apilogs=require("../models/apilogs");
+const User = require("../models/User");
 
 const GetApiUsage= async (req,res)=>{
     try{
@@ -12,12 +13,13 @@ const GetApiUsage= async (req,res)=>{
             apikey:apikey,
             timestamp:{$gte:today}
         });
+        const user = await User.findOne({ apikey }).populate("plan");
         
 
         const LastLog=await apilogs.findOne({apikey}).sort({timestamp:-1})
 
         res.json({
-            TotalRequest,TodayRequests,LastUsed:LastLog ? LastLog.timestamp : null
+            TotalRequest,TodayRequests,LastUsed:LastLog ? LastLog.timestamp : null,limit: user.plan.apiLimit
         })
 
 

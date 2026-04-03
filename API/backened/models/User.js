@@ -25,6 +25,13 @@ const userSchema = new mongoose.Schema({
     plan: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Plan"
+      },
+      isVerified: {
+        type: Boolean,
+        default: false
+      },
+      verificationToken: {
+        type: String
       }
 
 }, { timestamps: true });

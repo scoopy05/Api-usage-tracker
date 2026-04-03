@@ -1,0 +1,154 @@
+.api-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1100px;
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  .api-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 1.2rem;
+    color: #6a0dad;
+    font-weight: 500;
+  }
+  
+  /* --- Header Section --- */
+  .api-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+  }
+  
+  .api-header-text h1 {
+    margin: 0 0 5px 0;
+    font-size: 2rem;
+    color: #1a1a1a;
+  }
+  
+  .api-header-text p {
+    margin: 0;
+    color: #666;
+    font-size: 1.05rem;
+  }
+  
+  .doc-btn {
+    background-color: #f4f4f9;
+    color: #6a0dad;
+    border: 1px solid #eaeaef;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .doc-btn:hover {
+    background-color: #E8E6FF;
+    border-color: #6a0dad;
+  }
+  
+  /* --- API Cards Grid --- */
+  .api-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 25px;
+  }
+  
+  .api-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #eaeaef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .api-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  }
+  
+  .api-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .api-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+  
+  .api-status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .status-stable { background-color: #E8F5E9; color: #2E7D32; } 
+  .status-beta { background-color: #fff3cd; color: #856404; }   
+  
+  .api-description {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    flex-grow: 1; /* Pushes the endpoint box to the very bottom */
+  }
+  
+  .api-version {
+    margin: 0 0 15px 0;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 500;
+  }
+  
+  /* The box containing the URL (Now anchored at the bottom) */
+  .api-endpoint-box {
+    background-color: #f8f9fa;
+    border: 1px solid #eaeaef;
+    border-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0; /* Removed bottom margin since it's the last element */
+  }
+  
+  .api-endpoint-box code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    color: #d100d1; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75%;
+  }
+  
+  .copy-btn {
+    background: none;
+    border: none;
+    color: #6a0dad;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .copy-btn:hover {
+    text-decoration: underline;
+  }

@@ -1,34 +1,102 @@
-.dashboard{
-    background-image:url('../../assets/dashbackground.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height:100vh;
+/* --- 1. Main Dashboard Wrapper --- */
+/* Locks the entire app to the exact height of the browser window */
+.dashboard {
     display: flex;
     flex-direction: column;
-}
-.dashboard-content{
-    display:flex;
-    height:80vh;
-    margin-top: 20px;
-    
-
-
-}
-
-.dashboard-outlet{
+    height: 100vh; 
+    background-color: #f8f9fa; 
+    overflow: hidden;
+  }
+  
+  /* --- 2. Content Area (Sidebar + Outlet) --- */
+  /* Fills all the space underneath the Navbar */
+  .dashboard-content {
     display: flex;
-    margin-left: 40px;
-    width:55%;
-    /* overflow-y: auto; */
-    /* width: 70%; */
-   
+    flex: 1; 
+    overflow: hidden; 
+  }
+  
+  /* --- 3. Sidebar Styling --- */
+  .sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #eaeaef;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02);
+    z-index: 10;
+  }
+  
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .nav-item {
+    display: block;
+    padding: 14px 24px;
+    margin: 0 15px;
+    color: #4a4a55;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-radius: 10px; 
+  }
+  
+ 
+  .nav-item:hover {
+    background-color: #f4f4f9;
+    color: #6a0dad;
+  }
+  
+  /* Active State (When the user is currently on that page) */
+  .nav-item.active {
+    background-color: #E8E6FF; 
+    color: #6a0dad;
+    font-weight: 600;
+  }
+  
+  /* --- 4. Outlet (Where your pages render) --- */
+  .dashboard-outlet {
+    flex: 1; 
+    padding: 40px;
+    overflow-y: auto; 
+  }
+  
+  /* --- 5. Mobile Responsiveness --- */
+  @media screen and (max-width: 768px) {
+    .dashboard-content {
+      flex-direction: column;
+    }
     
+    .sidebar {
+      width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid #eaeaef;
+      padding: 10px 0;
+    }
     
-    height:100%;
+    .sidebar-nav {
+      flex-direction: row;
+      justify-content: flex-start;
+      overflow-x: auto; 
+      padding: 0 15px;
+    }
     
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255);
-
-
-}
+    .nav-item {
+      white-space: nowrap; 
+      margin: 0 5px;
+      padding: 10px 15px;
+    }
+    
+    .dashboard-outlet {
+      padding: 20px;
+    }
+  }

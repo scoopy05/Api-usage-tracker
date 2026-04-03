@@ -5,6 +5,7 @@ const apiSchema=new mongoose.Schema({
     endpoint:String,
     method:String,
     status:Number,
+    latency:Number,
     timestamp: {
         type: Date,
         default: Date.now

@@ -1,5 +1,4 @@
-
-  const randomJoke = (req, res) => {
+const randomJoke = (req, res) => {
     const jokes = [
       "Why do programmers hate nature? Too many bugs.",
       "Why did the developer go broke? Because he used up all his cache.",
@@ -39,9 +38,52 @@
     res.json({ encoded });
   };
   
+  // 🔥 NEW — send list of available APIs to frontend dashboard
+  const getAvailableApis = (req, res) => {
+    res.json([
+      {
+        id: 1,
+        name: "Random Joke",
+        description: "Returns a random programming joke",
+        endpoint: "/api/random-jokes",
+        method: "GET",
+        status: "Stable",
+        version: "v1"
+      },
+      {
+        id: 2,
+        name: "Current Time",
+        description: "Returns current server time",
+        endpoint: "/api/time",
+        method: "GET",
+        status: "Stable",
+        version: "v1"
+      },
+      {
+        id: 3,
+        name: "Random Password",
+        description: "Generates a random password",
+        endpoint: "/api/random-passwords",
+        method: "GET",
+        status: "Stable",
+        version: "v1"
+      },
+      {
+        id: 4,
+        name: "Base64 Encode",
+        description: "Encodes text into base64",
+        endpoint: "/api/base64-encode?text=hello",
+        method: "GET",
+        status: "Stable",
+        version: "v1"
+      }
+    ]);
+  };
+  
   module.exports = {
     randomJoke,
     currentTime,
     randomPassword,
-    base64Encode
+    base64Encode,
+    getAvailableApis
   };

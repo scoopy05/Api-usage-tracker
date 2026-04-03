@@ -1,31 +1,131 @@
-import React from 'react'
-import logo from '../assets/logo.png'
-import './navbar.css'
-import { Link } from 'react-router-dom'
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import './Navbar.css';
+// import logo from '../assets/logo.png'
 
-const Navbar = () => {
+// const Navbar = ({ isDashboard = false }) => {
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const navigate = useNavigate();
+
+//   const toggleMenu = () => {
+//     setIsMobileMenuOpen(!isMobileMenuOpen);
+//   };
+
+//   const goToLogin = () => navigate('/auth/login');
+//   const goToSignUp = () => navigate('/auth/signup');
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-brand">
+//         {/* Replace this src with the path to your full API Flow logo image */}
+//         <img 
+//           src={logo} 
+//           alt="API Flow Logo" 
+//           className="brand-logo" 
+//         />
+//       </div>
+
+//       <div className="mobile-menu-icon" onClick={toggleMenu}>
+//         <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+//         <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+//         <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+//       </div>
+
+//       <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+//         <li><a href="#about">About us</a></li>
+//         <li><a href="#features">Features</a></li>
+//         <li><a href="#pricing">Pricing</a></li>
+        
+//         <li className="mobile-actions">
+//           <button className="btn-outline" onClick={goToLogin}>Login</button>
+//           <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
+//         </li>
+//       </ul>
+
+//       <div className="navbar-actions desktop-only">
+//         <button className="btn-outline" onClick={goToLogin}>Login</button>
+//         <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Navbar.css';
+import logo from '../assets/logo.png';
+
+// Add isDashboard as a parameter here (defaulting to false)
+const Navbar = ({ isDashboard = false }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const goToLogin = () => navigate('/auth/login');
+  const goToSignUp = () => navigate('/auth/signup');
+  
+  // Create a quick logout function
+  const handleLogout = () => {
+    // Later, you can clear the user's token here
+    navigate('/'); // Send them back to the landing page
+  };
+
   return (
-    <div className='Top-section'>
-      <div className='navbar'>
-
-        <div className='logo'>
-          <img src={logo} />
-        </div>
-
-        <div className='featuresbox'>
-          <a className='about-us'>About us</a>
-          <a className='features'>Features</a>
-          <a className='pricing'>Pricing</a>
-        </div>
-
-        <div className='login-box'>
-          <Link to="/auth/login" className='loginbtn'>Login</Link>
-          <Link to="/auth/signup" className='signupbtn'>Sign Up</Link>
-        </div>
-
+    <nav className="navbar">
+      <div className="navbar-brand">
+        {/* Replace this src with the path to your full API Flow logo image */}
+        <img 
+          src={logo} 
+          alt="API Flow Logo" 
+          className="brand-logo" 
+        />
       </div>
-    </div>
-  )
-}
 
-export default Navbar
+      <div className="mobile-menu-icon" onClick={toggleMenu}>
+        <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+        <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+        <span className={isMobileMenuOpen ? "line open" : "line"}></span>
+      </div>
+
+      <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        {/* Only show these standard links if we are NOT on the dashboard */}
+        
+          <>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </>
+        
+        
+        <li className="mobile-actions">
+          {/* Conditional rendering for Mobile */}
+          {!isDashboard && (
+            <>
+              <button className="btn-outline" onClick={goToLogin}>Login</button>
+              <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
+            </>
+          )}
+        </li>
+      </ul>
+
+      <div className="navbar-actions desktop-only">
+        {/* Conditional rendering for Desktop */}
+        {!isDashboard && 
+           (
+          <>
+            <button className="btn-outline" onClick={goToLogin}>Login</button>
+            <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
