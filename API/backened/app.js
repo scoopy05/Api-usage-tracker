@@ -26,12 +26,12 @@ module.exports = (app) => {
   const userRoutes = require("./Routes/userRoutes");
   const apiRoutes = require("./Routes/apiRoutes");
   const planRoutes = require("./Routes/planRoutes");
-  const proxyRoutes = require("./Routes/proxyroutes");
+  
 
   app.use("/api/auth", authRoutes);
   app.use("/api/user", userRoutes);
   app.use("/api", apiRoutes);
   app.use("/api", planRoutes);
-  app.use("/proxy", proxyRoutes);
+
 
 };
