@@ -37,7 +37,7 @@ const registerUser = async (req, res) => {
             isVerified: false
         });
 
-        const verifyLink = `https://api-usage-tracker.onrender.com${verificationToken}`;
+        const verifyLink = `https://api-usage-tracker.onrender.com/api/auth/verify/${verificationToken}`;
 
         await sendEmail(
             email,
@@ -79,7 +79,7 @@ const loginUser=async (req,res)=>{
         }
         const token=jwt.sign({
             id:user._id,apikey:user.apikey},
-        "secretkey",{
+        process.env.JWT_SECRET,{
             expiresIn:"1d"
         })
 
