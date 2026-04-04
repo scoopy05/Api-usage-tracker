@@ -9,6 +9,7 @@ console.log("APP.JS LOADED");
 
 
 module.exports = (app) => {
+  app.set("trust proxy", 1);
 
   app.use(cors());
   app.use(express.json());
