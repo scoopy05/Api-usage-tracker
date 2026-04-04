@@ -5,11 +5,17 @@ const cookieParser=require("cookie-parser");
 
 const app=express();
 
-app.use(cors({
-    origin: "*", 
-    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-    allowedHeaders: ["Content-Type", "x-api-key", "Authorization"]
-  }));
+const corsOptions = {
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "x-api-key", "Authorization"]
+};
+
+
+app.use(cors(corsOptions));
+
+
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
