@@ -8,17 +8,20 @@ const cookieParser=require("cookie-parser");
 
 const app=express();
 
-const corsOptions = {
-  origin: "*", 
+app.use(cors({
+  origin: [
+    "https://api-usage-tracker-ten.vercel.app",
+    "https://api-usage-tracker-git-main-scoopy05s-projects.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5500"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "x-api-key", "Authorization"]
-};
+  allowedHeaders: ["Content-Type", "Authorization", "x-api-key"]
+}));
 
 
-app.use(cors(corsOptions));
+app.options("*", cors());
 
-
-app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -29,7 +32,7 @@ const authRoutes=require("./Routes/authRoutes");
 const userRoutes=require("./Routes/userRoutes");
 const apiRoutes=require("./Routes/apiRoutes");
 const planRoutes = require("./Routes/planRoutes");
-import proxyRoutes from "./Routes/proxyroutes.js";;
+const proxyRoutes =require("./Routes/proxyroutes.js");
 
 app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes);
