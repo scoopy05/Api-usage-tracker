@@ -1,6 +1,6 @@
 
-import express from "express";
-import fetch from "node-fetch"; 
+const express =require('express')
+
 
 const router = express.Router();
 
@@ -82,4 +82,4 @@ router.get("/base64-encode", async (req, res) => {
   }
 });
 
-export default router;
+module.exports=router; 
