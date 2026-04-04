@@ -40,13 +40,13 @@ const authRoutes=require("./Routes/authRoutes");
 const userRoutes=require("./Routes/userRoutes");
 const apiRoutes=require("./Routes/apiRoutes");
 const planRoutes = require("./Routes/planRoutes");
-const proxyRoutes =require("./Routes/proxyroutes.js");
+
 
 app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api",apiRoutes);
 app.use("/api", planRoutes);
-app.use("/proxy", proxyRoutes);
+
 console.log("ROUTES LOADED");
 
 
