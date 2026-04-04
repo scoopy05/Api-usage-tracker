@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
             password: hashPassword,
             apikey: apiKey,
             plan: freePlan._id,
-            // Set to true automatically so your DB schema doesn't throw errors
+            
             isVerified: true 
         });
 
