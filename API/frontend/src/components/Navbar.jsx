@@ -69,11 +69,11 @@ const Navbar = ({ isDashboard = false }) => {
 
   const goToLogin = () => navigate('/auth/login');
   const goToSignUp = () => navigate('/auth/signup');
-  
-  // Create a quick logout function
+  // Quick logout function
   const handleLogout = () => {
-    // Later, you can clear the user's token here
-    navigate('/'); // Send them back to the landing page
+    localStorage.removeItem("token");
+    localStorage.removeItem("apikey"); 
+    navigate('/auth/login'); 
   };
 
   return (
@@ -95,33 +95,36 @@ const Navbar = ({ isDashboard = false }) => {
 
       <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
         {/* Only show these standard links if we are NOT on the dashboard */}
-        
+        {!isDashboard && (
           <>
             <li><a href="#about">About us</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#pricing">Pricing</a></li>
           </>
-        
+        )}
         
         <li className="mobile-actions">
           {/* Conditional rendering for Mobile */}
-          {!isDashboard && (
+          {!isDashboard ? (
             <>
               <button className="btn-outline" onClick={goToLogin}>Login</button>
               <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
             </>
+          ) : (
+            <button className="btn-outline" onClick={handleLogout}>Logout</button>
           )}
         </li>
       </ul>
 
       <div className="navbar-actions desktop-only">
         {/* Conditional rendering for Desktop */}
-        {!isDashboard && 
-           (
+        {!isDashboard ? (
           <>
             <button className="btn-outline" onClick={goToLogin}>Login</button>
             <button className="btn-solid" onClick={goToSignUp}>Sign Up</button>
           </>
+        ) : (
+          <button className="btn-outline" onClick={handleLogout}>Logout</button>
         )}
       </div>
     </nav>

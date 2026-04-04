@@ -9,6 +9,7 @@ const ApiKeys = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // @ts-ignore
     const fetchApiKey = async () => {
       try {
         const res = await API.get("/user/apikey");
@@ -31,6 +32,21 @@ const ApiKeys = () => {
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
+  };
+
+  const handleRegenerate = async () => {
+    if (!window.confirm("Are you sure you want to regenerate your API Key? Your old key will instantly stop working.")) {
+      return;
+    }
+    
+    try {
+      const res = await API.post("/user/apikey/regenerate");
+      setApiKey(res.data.apikey);
+      alert("API Key regenerated successfully!");
+    } catch (error) {
+      console.error("Failed to regenerate API Key", error);
+      alert("Failed to regenerate API Key");
+    }
   };
 
   const toggleVisibility = () => {
@@ -75,6 +91,9 @@ const ApiKeys = () => {
             </button>
             <button className={`copy-btn ${isCopied ? 'copied' : ''}`} onClick={handleCopy}>
               {isCopied ? 'Copied!' : 'Copy'}
+            </button>
+            <button className="icon-btn" onClick={handleRegenerate} title="Regenerate Key">
+              Regenerate
             </button>
           </div>
         </div>

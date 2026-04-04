@@ -1,7 +1,7 @@
 {
     "extends": "@ljharb/tsconfig",   // points to node_modules/@ljharb/tsconfig
     "compilerOptions": {
-      "target": "es5",
+      "target": "ESNext",
       "rootDir": "./src",
       "baseUrl": "./src",
       "jsx": "react-jsx",
