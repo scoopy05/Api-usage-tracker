@@ -6,21 +6,22 @@ import sideimg from '../assets/sideimg.png'
 import API from "../api/api";
 
 const Auth = () => {
-  // Grab the mode ('login' or 'signup') from the URL
   const { mode } = useParams();
   const navigate = useNavigate();
   const isLogin = mode === 'login';
 
-  // State to hold all form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: ''
   });
-  const [message, setMessage] = useState('');
+  
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  // 1. Bring back the success message state
+  const [successMsg, setSuccessMsg] = useState(''); 
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -28,7 +29,6 @@ const Auth = () => {
     }
   }, [navigate]);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -37,11 +37,11 @@ const Auth = () => {
     }));
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    setSuccessMsg(''); // Clear old success messages
   
     if (!isLogin && formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
@@ -50,46 +50,56 @@ const Auth = () => {
     }
   
     try {
-      let res;
-  
+      let tokenToSave;
+
       if (isLogin) {
-        res = await API.post("/auth/login", {
+        const res = await API.post("/auth/login", {
           email: formData.email,
           password: formData.password,
         });
+        tokenToSave = res.data.token;
   
-        localStorage.setItem("token", res.data.token);
-        navigate('/dashboard');
-  
-      }  else {
-        res = await API.post("/auth/register", {
+      } else {
+        await API.post("/auth/register", {
           name: formData.name,
           email: formData.email,
           password: formData.password,
         });
       
-        setMessage("Registration successful! Please check your email to verify your account.");
+        const loginRes = await API.post("/auth/login", {
+          email: formData.email,
+          password: formData.password,
+        });
         
-        setTimeout(() => {
-          navigate('/auth/login');
-        }, 2000);
+        tokenToSave = loginRes.data.token;
       }
+
+      // Save token to local storage securely
+      localStorage.setItem("token", tokenToSave);
+      
+      // 2. Show the realistic processing message
+      setSuccessMsg("Success! Preparing your dashboard...");
+
+      // 3. The 2-second realistic delay before routing
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000);
+
+      // Notice we DO NOT set isLoading(false) here.
+      // We want the button to stay on "Processing..." while they wait!
   
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
+      setIsLoading(false); // Only turn off the loading state if there is an error
     }
-  
-    setIsLoading(false);
   };
 
   return (
     <div className="auth-page-wrapper">
       <div className="auth-card">
         
-        
         <div className="auth-form-section">
           <div className="auth-logo">
-           
             <img src={logo} alt="API FLOW" />
           </div>
 
@@ -108,10 +118,10 @@ const Auth = () => {
           </div>
 
           {error && <div className="error-message">{error}</div>}
-{message && <div className="success-message">{message}</div>}
+          {/* 4. Display the success message in the UI */}
+          {successMsg && <div className="success-message">{successMsg}</div>}
 
           <form onSubmit={handleSubmit} className="auth-form">
-            
             
             {!isLogin && (
               <input
@@ -142,7 +152,6 @@ const Auth = () => {
               required
             />
 
-            {/* Only show Confirm Password field on Sign Up */}
             {!isLogin && (
               <input
                 type="password"
@@ -161,16 +170,14 @@ const Auth = () => {
 
           <div className="auth-footer">
             {isLogin ? (
-              <p>Don't have an account ? <Link to="/auth/signup">Sign up</Link></p>
+              <p>Don't have an account? <Link to="/auth/signup">Sign up</Link></p>
             ) : (
-              <p>Already have an account ? <Link to="/auth/login">Login</Link></p>
+              <p>Already have an account? <Link to="/auth/login">Login</Link></p>
             )}
           </div>
         </div>
 
-        {/* Right Side: Illustration */}
         <div className="auth-image-section">
-          {/* Replace with your 3D illustration image path */}
           <img 
             src={sideimg} 
             alt="Authentication Illustration" 
