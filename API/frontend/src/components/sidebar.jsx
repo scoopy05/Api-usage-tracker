@@ -1,36 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const closeSidebar = () => {
+    if (window.innerWidth <= 768) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <aside className='sidebar'>
-      
-      {/* First Section */}
-      <div className="sidebar-section">
-        <p className='sidebar-heading'>Dashboard</p>
-        {/* Added full paths to be safe, 'end' keeps overview from staying highlighted */}
-        <NavLink to='/dashboard' className='nav-link' end>Overview</NavLink>
-        <NavLink to='/dashboard/usage' className='nav-link'>Usage Analytics</NavLink>
-        <NavLink to='/dashboard/api' className='nav-link'>Sample API</NavLink>
+    <>
+      {/* Mobile Toggle Button overlaying the content */}
+      <div className="mobile-sidebar-toggle" onClick={toggleSidebar}>
+        <span className={isOpen ? "line open" : "line"}></span>
+        <span className={isOpen ? "line open" : "line"}></span>
+        <span className={isOpen ? "line open" : "line"}></span>
       </div>
 
-      {/* Second Section (New Suggestions!) */}
-      <div className="sidebar-section">
-        <p className='sidebar-heading'>Management</p>
-        <NavLink to='/dashboard/keys' className='nav-link'>API Keys</NavLink>
-       
-      </div>
+      {/* Overlay when sidebar is active on mobile */}
+      {isOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
 
-      {/* Bottom Section for external links */}
-      <div className="sidebar-bottom">
-        {/* Using a standard <a> tag here assuming your docs might be on a different page or subdomain later */}
-        <a href="#docs" className="nav-link external-link">
-          Documentation ↗
-        </a>
-      </div>
-      
-    </aside>
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+        
+        {/* First Section */}
+        <div className="sidebar-section">
+          <p className='sidebar-heading'>Dashboard</p>
+          <NavLink to='/dashboard' className='nav-link' end onClick={closeSidebar}>Overview</NavLink>
+          <NavLink to='/dashboard/usage' className='nav-link' onClick={closeSidebar}>Usage Analytics</NavLink>
+          <NavLink to='/dashboard/api' className='nav-link' onClick={closeSidebar}>Sample API</NavLink>
+        </div>
+
+        {/* Second Section */}
+        <div className="sidebar-section">
+          <p className='sidebar-heading'>Management</p>
+          <NavLink to='/dashboard/keys' className='nav-link' onClick={closeSidebar}>API Keys</NavLink>
+        </div>
+        
+      </aside>
+    </>
   );
 }
 

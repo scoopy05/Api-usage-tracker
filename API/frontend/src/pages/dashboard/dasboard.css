@@ -72,31 +72,12 @@
   /* --- 5. Mobile Responsiveness --- */
   @media screen and (max-width: 768px) {
     .dashboard-content {
-      flex-direction: column;
-    }
-    
-    .sidebar {
-      width: 100%;
-      height: auto;
-      border-right: none;
-      border-bottom: 1px solid #eaeaef;
-      padding: 10px 0;
-    }
-    
-    .sidebar-nav {
-      flex-direction: row;
-      justify-content: flex-start;
-      overflow-x: auto; 
-      padding: 0 15px;
-    }
-    
-    .nav-item {
-      white-space: nowrap; 
-      margin: 0 5px;
-      padding: 10px 15px;
+      position: relative;
     }
     
     .dashboard-outlet {
       padding: 20px;
+      padding-top: 50px; /* Avoid overlap with mobile sidebar toggle */
+      width: 100%;
     }
   }

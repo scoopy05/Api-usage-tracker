@@ -63,3 +63,77 @@
   .external-link:hover {
     color: #1a1a1a;
   }
+  
+  /* --- Mobile Sidebar Toggle & Offcanvas --- */
+  .mobile-sidebar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+  }
+  
+  .mobile-sidebar-toggle .line {
+    width: 25px;
+    height: 3px;
+    background-color: #6a0dad;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+  
+  .sidebar-overlay {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile-sidebar-toggle {
+      display: flex;
+    }
+  
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px; /* Hidden off-screen */
+      height: 100%;
+      width: 250px;
+      z-index: 1050;
+      transition: left 0.3s ease-in-out;
+      padding-top: 70px; /* Leave space for hamburger */
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow when open */
+    }
+  
+    .sidebar.open {
+      left: 0;
+    }
+  
+    .sidebar-overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1040;
+    }
+  
+    /* Hamburger Animation to 'X' */
+    .mobile-sidebar-toggle .line.open:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .mobile-sidebar-toggle .line.open:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-sidebar-toggle .line.open:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
