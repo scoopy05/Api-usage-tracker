@@ -1,6 +1,7 @@
 const express=require("express");
 const cors=require("cors");
 const cookieParser=require("cookie-parser");
+console.log("APP.JS LOADED");
 
 
 
@@ -45,7 +46,8 @@ app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api",apiRoutes);
 app.use("/api", planRoutes);
-app.use("/proxy", proxyRoutes);;
+app.use("/proxy", proxyRoutes);
+console.log("ROUTES LOADED");
 
 
 module.exports=app;
