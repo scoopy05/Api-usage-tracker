@@ -26,7 +26,7 @@ const registerUser = async (req, res) => {
         const apiKey = uuidv4();
         const freePlan = await Plan.findOne({ name: "free" });
 
-        // 🔥 CREATE USER (ADD verificationToken + isVerified)
+       
         const user = await User.create({
             user: name,
             email: email,
