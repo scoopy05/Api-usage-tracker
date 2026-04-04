@@ -10,7 +10,7 @@ const Api = () => {
   useEffect(() => {
     const fetchAvailableApis = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/available");
+        const response = await fetch("https://api-usage-tracker.onrender.com/api/available");
         const data = await response.json();
         setApis(data);
         setIsLoading(false);

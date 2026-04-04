@@ -10,7 +10,7 @@ const Documentation = () => {
       <section className="docs-section">
         <h2>Example Request</h2>
         <pre className="docs-pre">
-{`fetch("http://localhost:8000/api/random-jokes", {
+{`fetch("https://api-usage-tracker.onrender.com/api/random-jokes", {
   method: "GET",
   headers: {
     "x-api-key": "YOUR_API_KEY"
@@ -23,7 +23,7 @@ const Documentation = () => {
 
       <section className="docs-section">
         <h2>Base URL</h2>
-        <code className="docs-code">http://localhost:8000/api</code>
+        <code className="docs-code">https://api-usage-tracker.onrender.com/api</code>
       </section>
 
       <section className="docs-section">
