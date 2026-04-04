@@ -27,6 +27,9 @@ app.use(cookieParser());
 
 app.get("/",(req,res)=>{
 res.send(" API managemnt server")});
+app.get("/test", (req, res) => {
+  res.send("Test route working");
+});
 
 const authRoutes=require("./Routes/authRoutes");
 const userRoutes=require("./Routes/userRoutes");
