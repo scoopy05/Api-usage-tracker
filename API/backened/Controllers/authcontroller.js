@@ -38,6 +38,7 @@ const registerUser = async (req, res) => {
         });
 
         const verifyLink = `https://api-usage-tracker.onrender.com/api/auth/verify/${verificationToken}`;
+        console.log("Sending email to:", email);
 
         await sendEmail(
             email,

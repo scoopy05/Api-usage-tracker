@@ -8,6 +8,7 @@ const sendEmail = async (to, subject, html) => {
       pass: process.env.EMAIL_PASS
     }
   });
+  console.log("Email function called");
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
@@ -15,6 +16,7 @@ const sendEmail = async (to, subject, html) => {
     subject,
     html
   });
+  console.log("Email sent successfully");
 };
 
 module.exports = sendEmail;
