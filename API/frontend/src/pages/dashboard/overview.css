@@ -33,7 +33,7 @@
     font-size: 1.05rem;
   }
   
-  /* --- Stats Grid --- */
+
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -67,11 +67,11 @@
   }
   
   .stat-value.log-text {
-    font-size: 1.4rem; /* Slightly smaller so text fits nicely */
-    color: #00a86b; /* Green to indicate a successful log */
+    font-size: 1.4rem; 
+    color: #00a86b; 
   }
   
-  /* --- Usage Limit Card --- */
+
   .limit-card {
     background: #ffffff;
     padding: 30px;
@@ -115,7 +115,7 @@
     transition: width 0.8s ease-in-out;
   }
   
-  /* Turns red if they are close to hitting the limit */
+
   .progress-bar-fill.warning {
     background-color: #ff3b30; 
   }
@@ -127,7 +127,7 @@
     font-weight: 500;
   }
   
-  /* --- Mobile Optimization --- */
+
   @media screen and (max-width: 768px) {
     .overview-container {
       gap: 20px;

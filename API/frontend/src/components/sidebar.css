@@ -21,7 +21,7 @@
     letter-spacing: 1.2px;
     color: #9999a1;
     font-weight: 700;
-    margin: 0 0 10px 25px; /* Aligns with the links */
+    margin: 0 0 10px 25px; 
   }
   
   .nav-link {
@@ -32,24 +32,24 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.2s ease;
-    border-left: 3px solid transparent; /* For the active highlight indicator */
+    border-left: 3px solid transparent; 
   }
   
-  /* Hover state */
+  
   .nav-link:hover {
     background-color: #f8f9fa;
     color: #6a0dad;
   }
   
-  /* Active state (React Router handles applying this class automatically!) */
+  
   .nav-link.active {
-    background-color: #E8E6FF; /* Soft purple background */
-    color: #6a0dad; /* Brand purple text */
+    background-color: #E8E6FF;
+    color: #6a0dad;
     border-left: 3px solid #6a0dad;
     font-weight: 600;
   }
   
-  /* Pushes the documentation link to the very bottom of the sidebar */
+
   .sidebar-bottom {
     margin-top: auto; 
     border-top: 1px solid #eaeaef;
@@ -64,7 +64,7 @@
     color: #1a1a1a;
   }
   
-  /* --- Mobile Sidebar Toggle & Offcanvas --- */
+
   .mobile-sidebar-toggle {
     display: none;
     flex-direction: column;
@@ -102,13 +102,13 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -260px; /* Hidden off-screen */
+      left: -260px; 
       height: 100%;
       width: 250px;
       z-index: 1050;
       transition: left 0.3s ease-in-out;
-      padding-top: 70px; /* Leave space for hamburger */
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow when open */
+      padding-top: 70px; 
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
     }
   
     .sidebar.open {
@@ -126,7 +126,7 @@
       z-index: 1040;
     }
   
-    /* Hamburger Animation to 'X' */
+   
     .mobile-sidebar-toggle .line.open:nth-child(1) {
       transform: rotate(45deg);
     }

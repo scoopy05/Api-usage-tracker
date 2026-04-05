@@ -28,7 +28,7 @@ const ApiKeys = () => {
     navigator.clipboard.writeText(apiKey);
     setIsCopied(true);
     
-    // Reset the "Copied!" text back to "Copy" after 2 seconds
+   
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
@@ -60,7 +60,7 @@ const ApiKeys = () => {
   return (
     <div className="keys-container">
       
-      {/* --- Header Section --- */}
+
       <div className="keys-header-row">
         <div className="keys-header-text">
           <h1>API Keys</h1>
@@ -68,7 +68,7 @@ const ApiKeys = () => {
         </div>
       </div>
 
-      {/* --- API Key Card --- */}
+  
       <div className="key-card">
         <div className="key-header">
           <h3>Your Secret Key</h3>
@@ -80,7 +80,7 @@ const ApiKeys = () => {
         </p>
 
         <div className="key-box">
-          {/* Shows either the real key or bullet points based on isVisible */}
+   
           <div className="key-display">
             {isVisible ? apiKey : '••••••••••••••••••••••••••••••••'}
           </div>

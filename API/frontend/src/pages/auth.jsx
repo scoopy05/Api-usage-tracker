@@ -19,7 +19,7 @@ const Auth = () => {
   
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  // 1. Bring back the success message state
+
   const [successMsg, setSuccessMsg] = useState(''); 
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Auth = () => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-    setSuccessMsg(''); // Clear old success messages
+    setSuccessMsg(''); 
   
     if (!isLogin && formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
@@ -74,23 +74,22 @@ const Auth = () => {
         tokenToSave = loginRes.data.token;
       }
 
-      // Save token to local storage securely
+   
       localStorage.setItem("token", tokenToSave);
       
-      // 2. Show the realistic processing message
+
       setSuccessMsg("Success! Preparing your dashboard...");
 
-      // 3. The 2-second realistic delay before routing
+ 
       setTimeout(() => {
         navigate('/dashboard');
       }, 2000);
 
-      // Notice we DO NOT set isLoading(false) here.
-      // We want the button to stay on "Processing..." while they wait!
+  
   
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
-      setIsLoading(false); // Only turn off the loading state if there is an error
+      setIsLoading(false); 
     }
   };
 
@@ -118,7 +117,7 @@ const Auth = () => {
           </div>
 
           {error && <div className="error-message">{error}</div>}
-          {/* 4. Display the success message in the UI */}
+    
           {successMsg && <div className="success-message">{successMsg}</div>}
 
           <form onSubmit={handleSubmit} className="auth-form">

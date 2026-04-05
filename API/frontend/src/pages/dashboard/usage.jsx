@@ -14,7 +14,7 @@ const Usage = () => {
   useEffect(() => {
     const fetchUsageData = async () => {
       try {
-        // Call both APIs
+      
         const usageRes = await API.get("/user/usage");
         const logsRes = await API.get("/user/logs");
 
@@ -35,7 +35,7 @@ const Usage = () => {
     fetchUsageData();
   }, []);
 
-  // Helper function to color-code the HTTP methods
+
   const getMethodColor = (method) => {
     switch(method) {
       case 'GET': return 'method-get';
@@ -63,7 +63,7 @@ const Usage = () => {
         <p>Review your high-level traffic and detailed request logs.</p>
       </div>
 
-      {/* --- Summary Cards --- */}
+     
       <div className="usage-stats-row">
         <div className="usage-stat-card">
           <h3>Total Requests</h3>
@@ -75,7 +75,7 @@ const Usage = () => {
         </div>
       </div>
 
-      {/* --- Detailed Logs Table --- */}
+      
       <div className="logs-section">
         <div className="logs-header">
           <h3>Recent Request Logs</h3>

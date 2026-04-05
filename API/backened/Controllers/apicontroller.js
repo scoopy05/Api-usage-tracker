@@ -38,7 +38,7 @@ const randomJoke = (req, res) => {
     res.json({ encoded });
   };
   
-  // 🔥 NEW — send list of available APIs to frontend dashboard
+
   const getAvailableApis = (req, res) => {
     res.json([
       {

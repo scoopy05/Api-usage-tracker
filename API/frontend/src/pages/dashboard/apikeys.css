@@ -21,7 +21,7 @@
     font-weight: 500;
   }
   
-  /* --- Header Section --- */
+
   .keys-header-row {
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,7 @@
     font-size: 1.05rem;
   }
   
-  /* --- API Key Card --- */
+ 
   .key-card {
     background: #ffffff;
     padding: 30px;
@@ -84,7 +84,7 @@
     color: #666;
   }
   
-  /* The box containing the Key */
+  
   .key-box {
     background-color: #f8f9fa;
     border: 1px solid #eaeaef;

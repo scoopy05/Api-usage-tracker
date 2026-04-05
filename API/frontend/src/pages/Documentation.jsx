@@ -6,7 +6,7 @@ const Documentation = () => {
     <div className="docs-container">
       <h1 className="docs-title">API Documentation</h1>
 
-      {/* Example Request */}
+     
       <section className="docs-section">
         <h2>Example Request</h2>
         <pre className="docs-pre">

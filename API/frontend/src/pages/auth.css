@@ -1,15 +1,15 @@
-/* Container for the whole page */
+
 .auth-page-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8f9fa; /* Light grey/white background */
+    background-color: #f8f9fa; 
     padding: 20px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   
-  /* The main card container */
+
   .auth-card {
     display: flex;
     width: 100%;
@@ -21,7 +21,7 @@
     min-height: 550px;
   }
   
-  /* --- Left Side: Form Area --- */
+
   .auth-form-section {
     flex: 1;
     padding: 40px 60px;
@@ -75,7 +75,7 @@
     width: 100%;
     padding: 14px 20px;
     border: 1px solid #e0e0e0;
-    border-radius: 30px; /* Pill shape */
+    border-radius: 30px; 
     font-size: 0.95rem;
     outline: none;
     transition: border-color 0.3s;
@@ -120,10 +120,10 @@
     font-weight: 600;
   }
   
-  /* --- Right Side: Image Area --- */
+
   .auth-image-section {
     flex: 1;
-    background-color: #E8E6FF; /* Matches the light purple from your design */
+    background-color: #E8E6FF; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,14 +136,13 @@
     object-fit: cover;
   }
   
-  /* --- Mobile Responsiveness --- */
+
   @media screen and (max-width: 768px) {
     .auth-card {
       flex-direction: column;
       max-width: 450px;
     }
-    
-    /* Hide the image on mobile to focus on the form */
+
     .auth-image-section {
       display: none;
     }

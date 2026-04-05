@@ -16,7 +16,7 @@
     font-weight: 500;
   }
   
-  /* --- Header Section --- */
+
   .api-header-row {
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,7 @@
     border-color: #6a0dad;
   }
   
-  /* --- API Cards Grid --- */
+  
   .api-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -107,7 +107,7 @@
     font-size: 0.95rem;
     color: #555;
     line-height: 1.5;
-    flex-grow: 1; /* Pushes the endpoint box to the very bottom */
+    flex-grow: 1; 
   }
   
   .api-version {
@@ -117,7 +117,7 @@
     font-weight: 500;
   }
   
-  /* The box containing the URL (Now anchored at the bottom) */
+  
   .api-endpoint-box {
     background-color: #f8f9fa;
     border: 1px solid #eaeaef;
@@ -126,7 +126,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0; /* Removed bottom margin since it's the last element */
+    margin-bottom: 0; 
   }
   
   .api-endpoint-box code {
