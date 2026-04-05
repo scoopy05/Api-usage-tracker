@@ -1,16 +1,205 @@
-# React + Vite
+# 🚀 API Flow – API Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+API Flow is a simple yet powerful API management platform that allows developers to register, generate API keys, and securely access APIs with usage tracking. This project is designed as a portfolio-ready full-stack application showcasing backend development, authentication, and API handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
 
-## React Compiler
+* 🔐 **User Authentication**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * Register & Login system
+  * Secure password handling
 
-## Expanding the ESLint configuration
+* 🔑 **API Key Management**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  * Unique API key generated for each user
+  * Required for accessing protected APIs
+
+* 📊 **API Usage Tracking**
+
+  * Tracks total API requests
+  * Tracks daily usage
+  * Logs request timestamps
+
+* ⚡ **Rate Limiting (Optional/Implemented)**
+
+  * Prevents abuse by limiting API requests
+
+* 📡 **Sample APIs**
+
+  * Random jokes API
+  * More APIs can be added easily
+
+* 🧾 **Developer-Friendly Documentation**
+
+  * Easy-to-understand API usage guide
+
+---
+
+## 🛠️ Tech Stack
+
+**Backend:**
+
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+
+**Frontend:**
+
+* React.js
+* CSS
+
+**Other Tools:**
+
+* Postman (API Testing)
+* Render (Deployment)
+
+---
+
+
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/scoopy05/Api-usage-tracker.git
+cd Api-usage-tracker
+```
+
+### 2️⃣ Install Dependencies
+
+**Backend:**
+
+```bash
+cd backend
+npm install
+```
+
+**Frontend:**
+
+```bash
+cd frontend
+npm install
+```
+
+---
+
+### 3️⃣ Environment Variables
+
+Create a `.env` file in the backend folder:
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+---
+
+### 4️⃣ Run the Project
+
+**Backend:**
+
+```bash
+npm start
+```
+
+**Frontend:**
+
+```bash
+npm start
+```
+
+---
+
+## 🔑 API Authentication
+
+To access protected APIs, include your API key in the request header:
+
+```
+x-api-key: YOUR_API_KEY
+```
+
+---
+
+## 📡 Example API
+
+### Get Random Joke
+
+**Endpoint:**
+
+```
+GET /api/random-jokes
+```
+
+**Headers:**
+
+```
+x-api-key: YOUR_API_KEY
+```
+
+**Response:**
+
+```json
+{
+  "joke": "Why do programmers hate nature? Too many bugs."
+}
+```
+
+---
+
+## 📊 API Usage Endpoint
+
+### Get Usage Stats
+
+```
+GET /api/usage
+```
+
+**Response:**
+
+```json
+{
+  "totalRequests": 120,
+  "todayRequests": 15
+}
+```
+
+---
+
+## 💡 Future Improvements
+
+* 🌍 Public API marketplace
+* 📈 Advanced analytics dashboard
+* 💳 Subscription & monetization system
+* 🔄 API versioning
+* 📦 More sample APIs
+
+---
+
+## 🎯 Purpose of This Project
+
+This project was built as a **portfolio project** to demonstrate:
+
+* Backend development skills
+* API security implementation
+* Database design & usage tracking
+* Full-stack integration
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
+
+---
+
+
+
+## ⭐ Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+---
